@@ -1,6 +1,7 @@
 import kivy
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
@@ -24,11 +25,9 @@ class GuiLayouts(App):
 
     def build(self):
 
-        #self.window.size = (3840 , 2160)
-
-        self.window= GridLayout()
+        self.window= FloatLayout()
         self.window.cols= 1
-        self.window.size_hint = ( 0.6, 0.72160)
+        self.window.size = (1440, 1024)
         self.window.pos_hint = {"center_x": 0.5, "center_y":0.5}
 
         #LabelBase.register(name='HeadingFont' , fn_regular='Jaini-Regular.tff')
@@ -36,14 +35,22 @@ class GuiLayouts(App):
         self.topLabel = Label(
             text='Enemy Tracker',
             #font_name='HeadingFont' ,
+            pos= (0 , 240),
             font_size = 96
         )
         self.window.add_widget(self.topLabel)
 
         self.window.add_widget(
+           Image(
+              source='assets/divider.gif' ,
+              pos = (0, 170)
+           )
+        )
+
+        self.window.add_widget(
             imgbtn(
-                  source='assets/createmonster.png', size_hint=(None, None),
-                  pos_hint={'center_x': .2, 'center_y': .25}
+                  source='assets/createmonsterbutton.png',
+                  pos = (-200,85)
       )
         )
         return self.window
