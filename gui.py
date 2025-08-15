@@ -18,9 +18,20 @@ class imgbtn(ButtonBehavior, Image):
    def __init__(self, **kwargs):
       super(imgbtn, self).__init__(**kwargs)
    def on_press(self):
-      GuiLayouts.l1.text=self.source
+      EnemyTracker.l1.text=self.source
 
-class GuiLayouts(App):
+class FirstWindow(Screen):
+   pass
+
+class CreateMonsterWindow(Screen):
+   pass
+
+class WindowManager(ScreenManager):
+   pass
+
+kv = Builder.load_file('new_window.kv')
+
+class EnemyTracker(App):
     
 
     def build(self):

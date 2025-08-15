@@ -1,6 +1,6 @@
-from gui import GuiLayouts
+from gui import EnemyTracker
 
 # Create Monster command, set health and dropdown menu with color
 
 if __name__ == '__main__':
-    GuiLayouts().run()
+    EnemyTracker().run()
