@@ -11,19 +11,25 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.popup import Popup
 from kivy.core.text import LabelBase, DEFAULT_FONT
+from kivy.uix.behaviors import ButtonBehavior
+
+class imgbtn(ButtonBehavior, Image):
+   def __init__(self, **kwargs):
+      super(imgbtn, self).__init__(**kwargs)
+   def on_press(self):
+      GuiLayouts.l1.text=self.source
 
 class GuiLayouts(App):
+    
 
     def build(self):
 
+        #self.window.size = (3840 , 2160)
+
         self.window= GridLayout()
         self.window.cols= 1
-        self.window.size_hint = (0.6 , 0.7)
+        self.window.size_hint = ( 0.6, 0.72160)
         self.window.pos_hint = {"center_x": 0.5, "center_y":0.5}
-
-        self.window.add_widget(
-            Image(source='createmonster.png')
-        )
 
         #LabelBase.register(name='HeadingFont' , fn_regular='Jaini-Regular.tff')
 
@@ -34,7 +40,10 @@ class GuiLayouts(App):
         )
         self.window.add_widget(self.topLabel)
 
-        btn = Button(
-                     background_normal = 'createmonster.png')
-        
+        self.window.add_widget(
+            imgbtn(
+                  source='assets/createmonster.png', size_hint=(None, None),
+                  pos_hint={'center_x': .2, 'center_y': .25}
+      )
+        )
         return self.window
