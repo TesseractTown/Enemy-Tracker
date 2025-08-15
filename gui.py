@@ -30,12 +30,12 @@ class GuiLayouts(App):
         self.window.size = (1440, 1024)
         self.window.pos_hint = {"center_x": 0.5, "center_y":0.5}
 
-        #LabelBase.register(name='HeadingFont' , fn_regular='Jaini-Regular.tff')
+        LabelBase.register(name='HeadingFont' , fn_regular='assets/Jaini-Regular.ttf')
 
         self.topLabel = Label(
             text='Enemy Tracker',
-            #font_name='HeadingFont' ,
-            pos= (0 , 240),
+            font_name='HeadingFont' ,
+            pos= (0 , 260),
             font_size = 96
         )
         self.window.add_widget(self.topLabel)
@@ -48,9 +48,30 @@ class GuiLayouts(App):
         )
 
         self.window.add_widget(
+           Image(
+              source=('assets/VenraSmol.gif'),
+                      pos = (-350,-250))
+           )
+
+        self.window.add_widget(
             imgbtn(
                   source='assets/createmonsterbutton.png',
                   pos = (-200,85)
       )
         )
+
+        self.window.add_widget(
+            imgbtn(
+                  source='assets/editmonster.png',
+                  pos = (0,85)
+      )
+        )
+
+        self.window.add_widget(
+            imgbtn(
+                  source='assets/deletemonster.png',
+                  pos = (200,85)
+      )
+        )
+
         return self.window
