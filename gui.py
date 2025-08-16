@@ -17,8 +17,27 @@ from kivy.uix.behaviors import ButtonBehavior
 class imgbtn(ButtonBehavior, Image):
    def __init__(self, **kwargs):
       super(imgbtn, self).__init__(**kwargs)
+      self.type = kwargs.get("type", self.type)
    def on_press(self):
-      EnemyTracker.l1.text=self.source
+      #EnemyTracker.l1.text=self.source
+      if type == "create":
+          self.onPressPopupCreate(self)
+      elif type == "edit":
+          self.onPressPopupEdit(self)
+      elif type == "delete":
+         self.onPressPopupDelete(self)
+
+   def onButtonPressCreate(self, button):
+        layout = GridLayout(cols = 1, padding = 10)
+        popupLabel = Label(text = "Click for pop-up")
+        closeButton = Button(text = "Close the pop-up")
+        layout.add_widget(popupLabel)
+        layout.add_widget(closeButton)       
+        popup = Popup(title ='Demo Popup',
+                      content = layout)  
+        popup.open()   
+        closeButton.bind(on_press = popup.dismiss)   
+
 
 class EnemyTracker(App):
     
@@ -57,13 +76,15 @@ class EnemyTracker(App):
             imgbtn(
                   source='assets/createmonsterbutton.png',
                   pos = (-200,85)
-      )
+                  type="create"
+                  )
         )
 
         self.window.add_widget(
             imgbtn(
                   source='assets/editmonster.png',
                   pos = (0,85)
+                  type="edit"
       )
         )
 
@@ -71,6 +92,7 @@ class EnemyTracker(App):
             imgbtn(
                   source='assets/deletemonster.png',
                   pos = (200,85)
+                  type="delete"
       )
         )
 

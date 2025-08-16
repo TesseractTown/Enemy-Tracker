@@ -10,7 +10,7 @@ class Enemy:
 
     def create_enemy(name, hp, ac):
         enemy = Enemy(name, hp, ac)
-        enemy_dict[name] = self.name 
+        #enemy_dict[name] = self.name 
 
     def heal(self, amount):
         pass
