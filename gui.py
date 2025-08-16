@@ -20,11 +20,11 @@ class imgbtn(ButtonBehavior, Image):
       self.type = type
    def on_press(self):
       #EnemyTracker.l1.text=self.source
-      if type == "create":
+      if self.type == "create":
           self.onPressPopupCreate(self)
-      elif type == "edit":
+      elif self.type == "edit":
           self.onPressPopupEdit(self)
-      elif type == "delete":
+      elif self.type == "delete":
          self.onPressPopupDelete(self)
 
    def onPressPopupCreate(self, button):
