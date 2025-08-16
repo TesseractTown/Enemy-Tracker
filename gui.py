@@ -20,17 +20,6 @@ class imgbtn(ButtonBehavior, Image):
    def on_press(self):
       EnemyTracker.l1.text=self.source
 
-class FirstWindow(Screen):
-   pass
-
-class CreateMonsterWindow(Screen):
-   pass
-
-class WindowManager(ScreenManager):
-   pass
-
-kv = Builder.load_file('new_window.kv')
-
 class EnemyTracker(App):
     
 
