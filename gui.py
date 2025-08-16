@@ -22,8 +22,6 @@ class imgbtn(ButtonBehavior, Image):
       #EnemyTracker.l1.text=self.source
       if self.type == "create":
           self.onPressPopupCreate(self)
-      elif self.type == "edit":
-          self.onPressPopupEdit(self)
       elif self.type == "delete":
          self.onPressPopupDelete(self)
 
@@ -87,14 +85,6 @@ class EnemyTracker(App):
                   source='assets/createmonsterbutton.png',
                   pos = (-200,85),
                   )
-        )
-
-        self.window.add_widget(
-            imgbtn(
-                  source='assets/editmonster.png',
-                  pos = (0,85),
-                  type="edit"
-      )
         )
 
         self.window.add_widget(
