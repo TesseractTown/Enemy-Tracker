@@ -15,9 +15,9 @@ from kivy.core.text import LabelBase, DEFAULT_FONT
 from kivy.uix.behaviors import ButtonBehavior
 
 class imgbtn(ButtonBehavior, Image):
-   def __init__(self, **kwargs):
+   def __init__(self, type, **kwargs):
       super(imgbtn, self).__init__(**kwargs)
-      self.type = kwargs.get("type", self.type)
+      self.type = type
    def on_press(self):
       #EnemyTracker.l1.text=self.source
       if type == "create":
@@ -27,7 +27,7 @@ class imgbtn(ButtonBehavior, Image):
       elif type == "delete":
          self.onPressPopupDelete(self)
 
-   def onButtonPressCreate(self, button):
+   def onPressPopupCreate(self, button):
         layout = GridLayout(cols = 1, padding = 10)
         popupLabel = Label(text = "Click for pop-up")
         closeButton = Button(text = "Close the pop-up")
@@ -74,16 +74,16 @@ class EnemyTracker(App):
 
         self.window.add_widget(
             imgbtn(
+                  type="create",
                   source='assets/createmonsterbutton.png',
-                  pos = (-200,85)
-                  type="create"
+                  pos = (-200,85),
                   )
         )
 
         self.window.add_widget(
             imgbtn(
                   source='assets/editmonster.png',
-                  pos = (0,85)
+                  pos = (0,85),
                   type="edit"
       )
         )
@@ -91,7 +91,7 @@ class EnemyTracker(App):
         self.window.add_widget(
             imgbtn(
                   source='assets/deletemonster.png',
-                  pos = (200,85)
+                  pos = (200,85),
                   type="delete"
       )
         )
