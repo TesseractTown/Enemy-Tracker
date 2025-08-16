@@ -28,6 +28,7 @@ class imgbtn(ButtonBehavior, Image):
          self.onPressPopupDelete(self)
 
    def onPressPopupCreate(self, button):
+        print(self.type)
         layout = GridLayout(cols = 1, padding = 10)
         popupLabel = Label(text = "Click for pop-up")
         closeButton = Button(text = "Close the pop-up")
@@ -36,7 +37,15 @@ class imgbtn(ButtonBehavior, Image):
         popup = Popup(title ='Demo Popup',
                       content = layout)  
         popup.open()   
-        closeButton.bind(on_press = popup.dismiss)   
+        closeButton.bind(on_press = popup.dismiss)  
+
+   def onPressPopupEdit(self, button):
+      print("Edit pressed")
+      print(self.type)
+
+   def onPressPopupDelete(self, button):
+      print("Delete pressed")
+      print(self.type)
 
 
 class EnemyTracker(App):
